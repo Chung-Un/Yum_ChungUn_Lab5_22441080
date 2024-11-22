@@ -62,6 +62,11 @@ public class juego extends javax.swing.JFrame {
         });
 
         btn13.setText("....");
+        btn13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn13ActionPerformed(evt);
+            }
+        });
 
         btn21.setText("....");
         btn21.addActionListener(new java.awt.event.ActionListener() {
@@ -142,10 +147,8 @@ public class juego extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn11, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn13)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn21, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
@@ -173,6 +176,7 @@ public class juego extends javax.swing.JFrame {
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
@@ -188,6 +192,7 @@ public class juego extends javax.swing.JFrame {
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
@@ -195,27 +200,116 @@ public class juego extends javax.swing.JFrame {
 
     private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
         // TODO add your handling code here:
+        if(btn21.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn21.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn21.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
+        
     }//GEN-LAST:event_btn21ActionPerformed
 
     private void btn31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn31ActionPerformed
         // TODO add your handling code here:
+        if(btn31.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn31.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn31.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn31ActionPerformed
 
     private void btn23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn23ActionPerformed
         // TODO add your handling code here:
+        if(btn23.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn23.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn23.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn23ActionPerformed
 
     private void btn33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn33ActionPerformed
         // TODO add your handling code here:
+        if(btn33.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn33.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn33.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn33ActionPerformed
 
     private void btn32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn32ActionPerformed
         // TODO add your handling code here:
+        if(btn32.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn32.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn32.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn32ActionPerformed
 
     private void btn22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn22ActionPerformed
         // TODO add your handling code here:
+        if(btn22.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn22.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn22.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn22ActionPerformed
+
+    private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
+        // TODO add your handling code here:
+        if(btn13.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn13.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn13.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        return;
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
+    }//GEN-LAST:event_btn13ActionPerformed
 
     /**
      * @param args the command line arguments
