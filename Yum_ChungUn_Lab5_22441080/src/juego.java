@@ -17,6 +17,8 @@ public class juego extends javax.swing.JFrame {
      */
     
     private boolean turnoX; //una variable para controlar los turnos
+    
+    
     public juego() {
         initComponents();
     }
@@ -180,6 +182,13 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        if(turnoX){//cambia el texto indicando el turno
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn11ActionPerformed
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
@@ -196,6 +205,13 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        if(turnoX){
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn12ActionPerformed
 
     private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
@@ -213,6 +229,14 @@ public class juego extends javax.swing.JFrame {
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
         
+        if(turnoX){ 
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
+        
+        
     }//GEN-LAST:event_btn21ActionPerformed
 
     private void btn31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn31ActionPerformed
@@ -229,6 +253,13 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        if(turnoX){//cambia el texto indicando el turno
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn31ActionPerformed
 
     private void btn23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn23ActionPerformed
@@ -245,6 +276,13 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        if(turnoX){//cambia el texto indicando el turno
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn23ActionPerformed
 
     private void btn33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn33ActionPerformed
@@ -277,6 +315,14 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        
+        if(turnoX){//cambia el texto indicando el turno
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn32ActionPerformed
 
     private void btn22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn22ActionPerformed
@@ -293,6 +339,13 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        if(turnoX){//cambia el texto indicando el turno
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn22ActionPerformed
 
     private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
@@ -309,6 +362,13 @@ public class juego extends javax.swing.JFrame {
         
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
+        
+        if(turnoX){//cambia el texto indicando el turno
+        turnos.setText("Turno: X");
+        }
+        else{
+        turnos.setText("Turno: 0");
+        }
     }//GEN-LAST:event_btn13ActionPerformed
 
     /**
