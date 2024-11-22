@@ -20,6 +20,17 @@ public class juego extends javax.swing.JFrame {
     private String[][] partida = {{"","","",},{"","",""},{"","",""}}; //areglo para poder determinar el ganador
     
    
+    public boolean casoEmpate(){
+    
+        for(int i=0; i<3;i++){ //recorre todo el arreglo para ver si esta lleno
+        for(int x=0;x<3;x++){
+        if(partida[i][x].equals("")){ //si no lo esta, no es empate
+        return false;
+        }
+        }
+        }return true; //si esta vacio es empate
+    
+    }
     
     public String ganadorIdentidad(){
     String ganadorIdentidad="";
@@ -467,6 +478,10 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!ganadorIdentidad().equals("")){
         JOptionPane.showMessageDialog(null, "El ganador es " + ganadorIdentidad());
+        dispose();
+        }
+        else if(casoEmpate()){
+        JOptionPane.showMessageDialog(null, "Es un empate.");
         dispose();
         }
         else{
