@@ -6,7 +6,10 @@
 /**
  *
  * @author chung
+ * 
+ * 
  */
+import javax.swing.*;
 public class juego extends javax.swing.JFrame {
 
     /**
@@ -139,8 +142,10 @@ public class juego extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn11, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
-                    .addComponent(btn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn13)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn21, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
@@ -159,13 +164,33 @@ public class juego extends javax.swing.JFrame {
 
     private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
         // TODO add your handling code here:
-        char turnosActual;
         
-        btn11.setText("X");
+        if(btn11.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX = true){ //si es el turno de x, se llena con una x
+        btn11.setText("X");}
+        else if (turnoX=false){ //si es el turno de 0, se llena con una 0
+        btn11.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn11ActionPerformed
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
         // TODO add your handling code here:
+        if(btn12.getText().equals("....")){ //verifica si la casilla esta disponible
+        if(turnoX){ //si es el turno de x, se llena con una x
+        btn12.setText("X");}
+        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        btn12.setText("0");
+        }}
+        else{ //si no esta vacia, le pide al usuario que vuelva a intentar
+        JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
+        
+        }
+        turnoX = !turnoX; //el turno se pasa al otro jugador
     }//GEN-LAST:event_btn12ActionPerformed
 
     private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
