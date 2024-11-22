@@ -17,6 +17,7 @@ public class juego extends javax.swing.JFrame {
      */
     
     private boolean turnoX; //una variable para controlar los turnos
+    private String[][] partida = {{"","","",},{"","",""},{"","",""}}; //areglo para poder determinar el ganador
     
     
     public juego() {
@@ -172,9 +173,12 @@ public class juego extends javax.swing.JFrame {
         
         if(btn11.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX = true){ //si es el turno de x, se llena con una x
-        btn11.setText("X");}
+        btn11.setText("X");
+        partida[0][1] = "X"; //se almacena la eleccion en el arreglo
+        }
         else if (turnoX=false){ //si es el turno de 0, se llena con una 0
         btn11.setText("0");
+        partida[0][1] = "0"; //igual aqui
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
