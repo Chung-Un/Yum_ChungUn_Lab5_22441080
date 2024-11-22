@@ -19,28 +19,33 @@ public class juego extends javax.swing.JFrame {
     private boolean turnoX; //una variable para controlar los turnos
     private String[][] partida = {{"","","",},{"","",""},{"","",""}}; //areglo para poder determinar el ganador
     
+   
+    
     public String ganadorIdentidad(){
     String ganadorIdentidad="";
     
     for(int i=0; i<3;i++){
-    if( partida[i][0].equals(partida[i][1]) && partida[i][1].equals(partida[i][2])){ //chequa si las columnas tienen contenidos iguales
-    ganadorIdentidad = partida[i][0];
-    }
-    else if(partida[0][i].equals(partida[1][i]) && partida[1][i].equals(partida[2][i])){ //cheequa si las filas tienen contenidos iguales
-    ganadorIdentidad = partida[0][i];
-    }
-    else{
-    ganadorIdentidad ="";    
+    if( !partida[i][0].equals("") && partida[i][0].equals(partida[i][1]) && partida[i][1].equals(partida[i][2])){ //chequa si las columnas tienen contenidos iguales, ademas verifica que una de ellas no este vacia
+    ganadorIdentidad = partida[i][0]; //se asigna el valor dentro de la casilla para identificar el ganador
+    return ganadorIdentidad;
+    }}
+    for(int x=0; x<3;x++){
+    if(!partida[0][x].equals("") && partida[0][x].equals(partida[1][x]) && partida[1][x].equals(partida[2][x])){ //cheequa si las filas tienen contenidos iguales
+    ganadorIdentidad = partida[0][x];
+    return ganadorIdentidad;
     }
     }
     
-    if(partida[0][0].equals(partida[1][1]) && partida[1][1].equals(partida[2][2])){//chequea la coincidencia diagonal de esquina superior izquierda a inferior derecha
+    if(!partida[0][0].equals("") && partida[0][0].equals(partida[1][1]) && partida[1][1].equals(partida[2][2])){//chequea la coincidencia diagonal de esquina superior izquierda a inferior derecha
     ganadorIdentidad = partida[0][0];
+    return ganadorIdentidad;
     }
-    else if(partida[0][2].equals(partida[1][1]) && partida[1][1].equals(partida[2][0])){ //coincidencia diagonal de esquina superior derecha a inferior izquierda
+    else if(!partida[0][2].equals("") && partida[0][2].equals(partida[1][1]) && partida[1][1].equals(partida[2][0])){ //coincidencia diagonal de esquina superior derecha a inferior izquierda
     ganadorIdentidad = partida[0][2];
+    return ganadorIdentidad;
     }
-    return ganadorIdentidad; //si ninguna se cumple es falso
+    
+    return ganadorIdentidad; 
     }
     
     
@@ -70,6 +75,7 @@ public class juego extends javax.swing.JFrame {
         btn33 = new javax.swing.JButton();
         btn32 = new javax.swing.JButton();
         btn22 = new javax.swing.JButton();
+        btnganar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,15 +145,21 @@ public class juego extends javax.swing.JFrame {
             }
         });
 
+        btnganar.setText("Gane?");
+        btnganar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnganarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(btn31)
@@ -161,18 +173,24 @@ public class juego extends javax.swing.JFrame {
                                 .addComponent(btn11)
                                 .addGap(38, 38, 38)
                                 .addComponent(btn12)))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn13)
-                            .addComponent(btn23)
-                            .addComponent(btn33))))
-                .addGap(31, 31, 31))
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(135, 135, 135)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnganar)
+                    .addComponent(btn13)
+                    .addComponent(btn23)
+                    .addComponent(btn33))
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnganar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn11, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
@@ -197,38 +215,44 @@ public class juego extends javax.swing.JFrame {
     private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
         // TODO add your handling code here:
         
+       
         if(btn11.getText().equals("....")){ //verifica si la casilla esta disponible
-        if(turnoX = true){ //si es el turno de x, se llena con una x
+        if(turnoX=true){ //si es el turno de x, se llena con una x
         btn11.setText("X");
-        partida[0][0] = "X"; //se almacena la eleccion en el arreglo
+        partida[0][0] = "X";
         }
         else if (turnoX=false){ //si es el turno de 0, se llena con una 0
         btn11.setText("0");
-        partida[0][0] = "0"; //igual aqui
+        partida[0][0] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
         return;
         
         }
+        
         turnoX = !turnoX; //el turno se pasa al otro jugador
         
-        if(turnoX){//cambia el texto indicando el turno
+        if(turnoX){ 
         turnos.setText("Turno: X");
         }
         else{
         turnos.setText("Turno: 0");
         }
+        
+        
+                            
     }//GEN-LAST:event_btn11ActionPerformed
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
         // TODO add your handling code here:
+        
         if(btn12.getText().equals("....")){ //verifica si la casilla esta disponible
-        if(turnoX){ //si es el turno de x, se llena con una x
+        if(turnoX = true){ //si es el turno de x, se llena con una x
         btn12.setText("X");
         partida[0][1] = "X";
         }
-        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        else if (turnoX = false){ //si es el turno de 0, se llena con una 0
         btn12.setText("0");
         partida[0][1] = "0";
         }}
@@ -239,22 +263,26 @@ public class juego extends javax.swing.JFrame {
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
         
-        if(turnoX){
+        if(turnoX){ 
         turnos.setText("Turno: X");
         }
         else{
         turnos.setText("Turno: 0");
         }
+        
+        
+                               
     }//GEN-LAST:event_btn12ActionPerformed
 
     private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
         // TODO add your handling code here:
+        if (ganadorIdentidad().equals("")){
         if(btn21.getText().equals("....")){ //verifica si la casilla esta disponible
-        if(turnoX){ //si es el turno de x, se llena con una x
+        if(turnoX = true){ //si es el turno de x, se llena con una x
         btn21.setText("X");
         partida[1][0] = "X";
         }
-        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        else if (turnoX=false){ //si es el turno de 0, se llena con una 0
         btn21.setText("0");
         partida[1][0] = "0";
         }}
@@ -262,6 +290,10 @@ public class juego extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
         return;
         
+        }}
+        else if(!ganadorIdentidad().equals("")){
+        JOptionPane.showMessageDialog(null,"El ganador es " + ganadorIdentidad());
+        return;
         }
         turnoX = !turnoX; //el turno se pasa al otro jugador
         
@@ -402,29 +434,46 @@ public class juego extends javax.swing.JFrame {
 
     private void btn13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn13ActionPerformed
         // TODO add your handling code here:
+        
+        
         if(btn13.getText().equals("....")){ //verifica si la casilla esta disponible
-        if(turnoX){ //si es el turno de x, se llena con una x
+        if(turnoX=true){ //si es el turno de x, se llena con una x
         btn13.setText("X");
         partida[0][2] = "X";
         }
-        else if (!turnoX){ //si es el turno de 0, se llena con una 0
+        else if (turnoX = false){ //si es el turno de 0, se llena con una 0
         btn13.setText("0");
         partida[0][2] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
         return;
-        
         }
+       
         turnoX = !turnoX; //el turno se pasa al otro jugador
         
-        if(turnoX){//cambia el texto indicando el turno
+        if(turnoX){ 
         turnos.setText("Turno: X");
         }
         else{
         turnos.setText("Turno: 0");
         }
+        
+        
+                            
     }//GEN-LAST:event_btn13ActionPerformed
+
+    private void btnganarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnganarActionPerformed
+        // TODO add your handling code here:
+        if(!ganadorIdentidad().equals("")){
+        JOptionPane.showMessageDialog(null, "El ganador es " + ganadorIdentidad());
+        dispose();
+        }
+        else{
+        JOptionPane.showMessageDialog(null,"No existe un ganador");
+        return;
+        }
+    }//GEN-LAST:event_btnganarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,6 +520,7 @@ public class juego extends javax.swing.JFrame {
     private javax.swing.JButton btn31;
     private javax.swing.JButton btn32;
     private javax.swing.JButton btn33;
+    private javax.swing.JButton btnganar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel turnos;
     // End of variables declaration//GEN-END:variables
