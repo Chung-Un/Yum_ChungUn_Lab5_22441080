@@ -19,6 +19,32 @@ public class juego extends javax.swing.JFrame {
     private boolean turnoX; //una variable para controlar los turnos
     private String[][] partida = {{"","","",},{"","",""},{"","",""}}; //areglo para poder determinar el ganador
     
+    public String ganadorIdentidad(){
+    String ganadorIdentidad="";
+    
+    for(int i=0; i<3;i++){
+    if( partida[i][0].equals(partida[i][1]) && partida[i][1].equals(partida[i][2])){ //chequa si las columnas tienen contenidos iguales
+    ganadorIdentidad = partida[i][0];
+    }
+    else if(partida[0][i].equals(partida[1][i]) && partida[1][i].equals(partida[2][i])){ //cheequa si las filas tienen contenidos iguales
+    ganadorIdentidad = partida[0][i];
+    }
+    else{
+    ganadorIdentidad ="";    
+    }
+    }
+    
+    if(partida[0][0].equals(partida[1][1]) && partida[1][1].equals(partida[2][2])){//chequea la coincidencia diagonal de esquina superior izquierda a inferior derecha
+    ganadorIdentidad = partida[0][0];
+    }
+    else if(partida[0][2].equals(partida[1][1]) && partida[1][1].equals(partida[2][0])){ //coincidencia diagonal de esquina superior derecha a inferior izquierda
+    ganadorIdentidad = partida[0][2];
+    }
+    return ganadorIdentidad; //si ninguna se cumple es falso
+    }
+    
+    
+    
     
     public juego() {
         initComponents();
@@ -174,11 +200,11 @@ public class juego extends javax.swing.JFrame {
         if(btn11.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX = true){ //si es el turno de x, se llena con una x
         btn11.setText("X");
-        partida[0][1] = "X"; //se almacena la eleccion en el arreglo
+        partida[0][0] = "X"; //se almacena la eleccion en el arreglo
         }
         else if (turnoX=false){ //si es el turno de 0, se llena con una 0
         btn11.setText("0");
-        partida[0][1] = "0"; //igual aqui
+        partida[0][0] = "0"; //igual aqui
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -199,9 +225,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn12.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn12.setText("X");}
+        btn12.setText("X");
+        partida[0][1] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn12.setText("0");
+        partida[0][1] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -222,9 +251,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn21.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn21.setText("X");}
+        btn21.setText("X");
+        partida[1][0] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn21.setText("0");
+        partida[1][0] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -247,9 +279,13 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn31.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn31.setText("X");}
+        btn31.setText("X");
+        partida[2][0] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn31.setText("0");
+        partida[2][0] = "0";
+        
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -270,9 +306,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn23.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn23.setText("X");}
+        btn23.setText("X");
+        partida[1][2] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn23.setText("0");
+        partida[1][2] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -293,9 +332,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn33.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn33.setText("X");}
+        btn33.setText("X");
+        partida[2][2] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn33.setText("0");
+        partida[2][2] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -309,9 +351,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn32.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn32.setText("X");}
+        btn32.setText("X");
+        partida[2][1] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn32.setText("0");
+        partida[2][1] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -333,9 +378,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn22.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn22.setText("X");}
+        btn22.setText("X");
+        partida[1][1] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn22.setText("0");
+        partida[1][1] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
@@ -356,9 +404,12 @@ public class juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(btn13.getText().equals("....")){ //verifica si la casilla esta disponible
         if(turnoX){ //si es el turno de x, se llena con una x
-        btn13.setText("X");}
+        btn13.setText("X");
+        partida[0][2] = "X";
+        }
         else if (!turnoX){ //si es el turno de 0, se llena con una 0
         btn13.setText("0");
+        partida[0][2] = "0";
         }}
         else{ //si no esta vacia, le pide al usuario que vuelva a intentar
         JOptionPane.showMessageDialog(null, "Casilla invalida, intente de nuevo");
